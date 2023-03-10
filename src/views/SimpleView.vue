@@ -21,16 +21,16 @@ export default {
   data() {
     return {
       items: [
-        { id: "id-0", title: "Item A", color: randomColor({luminosity: 'light'}) },
-        { id: "id-1", title: "Item B", color: randomColor({luminosity: 'light'}) },
-        { id: "id-2", title: "Item C", color: randomColor({luminosity: 'light'}) },
-        { id: "id-3", title: "Item D", color: randomColor({luminosity: 'light'}) },
-        { id: "id-4", title: "Item E", color: randomColor({luminosity: 'light'}) },
-        { id: "id-5", title: "Item F", color: randomColor({luminosity: 'light'}) },
-        { id: "id-6", title: "Item G", color: randomColor({luminosity: 'light'}) },
-        { id: "id-7", title: "Item H", color: randomColor({luminosity: 'light'}) },
-        { id: "id-8", title: "Item I", color: randomColor({luminosity: 'light'}) },
-        { id: "id-9", title: "Item J", color: randomColor({luminosity: 'light'}) },
+        { id: "id-0", title: "Item A", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-1", title: "Item B", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-2", title: "Item C", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-3", title: "Item D", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-4", title: "Item E", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-5", title: "Item F", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-6", title: "Item G", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-7", title: "Item H", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-8", title: "Item I", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-9", title: "Item J", color: `hsl(${Math.random() * 360},90%,80%)` },
       ],
     }
   },
@@ -51,12 +51,12 @@ main {
   gap: 10px;
   width: 400px;
   margin: auto;
-  outline: 4px dotted #ccc;
-  outline-offset: 10px;
-  border-radius: 3px;
+  outline: 3px dotted #dadada;
+  outline-offset: 14px;
+  border-radius: 4px;
   .list-item {
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 6px;
   }
 }
 
