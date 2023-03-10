@@ -7,6 +7,8 @@ import { RouterLink, RouterView } from 'vue-router'
     <nav>
       <RouterLink :to="{name: 'simple'}">Simple</RouterLink>
       <RouterLink :to="{name: 'two-lists'}">Two Lists</RouterLink>
+      <RouterLink :to="{name: 'custom-drag-source'}">Custom Drag Source</RouterLink>
+      <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
     </nav>
   </header>
   <main>
@@ -22,11 +24,21 @@ nav {
   padding: 10px;
   a {
     display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: royalblue;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
     &.router-link-exact-active {
-      color: var(--color-text);
+      background: #efefef;
+      text-decoration: none;
     }
     &.router-link-exact-active:hover {
-      background-color: transparent;
+      box-shadow: none;
+      text-decoration: none;
     }
   }
 }

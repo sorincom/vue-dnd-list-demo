@@ -1,5 +1,8 @@
 <template>
   <main>
+    <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+      Drag Me!
+    </article>
     <DnDList :items="items" class="list">
       <template v-slot:item="{ item }">
         <div class="list-item" :style="`background: ${item.color}`">
@@ -12,10 +15,10 @@
 
 <script>
 
-import { DnDList } from 'vue-dnd-list'
+import { DnDList, dndSharedState } from 'vue-dnd-list'
 
 export default {
-  name: 'SimpleView',
+  name: 'CustomDragSourceView',
   components: { DnDList },
   data() {
     return {
@@ -33,6 +36,17 @@ export default {
       ],
     }
   },
+  methods: {
+    dragstart(e) {
+      dndSharedState.patch({
+        draggedItem: {
+          id: 'x',
+          title: 'Dragged Item',
+          color: 'deepskyblue'
+        }
+      })
+    }
+  }
 }
 
 </script>
@@ -41,7 +55,17 @@ export default {
 
 main {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 100px;
+}
+
+article.custom-drag-source {
+  align-self: flex-start;
+  padding: 20px;
+  border-radius: 6px;
+  background: deepskyblue;
+  color: white;
+  cursor: grab;
 }
 
 .list {
@@ -49,7 +73,6 @@ main {
   flex-direction: column;
   gap: 10px;
   width: 400px;
-  margin: auto;
   outline: 3px dotted #dadada;
   outline-offset: 14px;
   border-radius: 4px;
