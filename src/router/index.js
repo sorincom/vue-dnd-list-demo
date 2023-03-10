@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import SimpleView from '../views/SimpleView.vue'
+import TwoListsView from '../views/TwoListsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,12 +8,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'simple',
-      component: () => import('../views/SimpleView.vue')
+      component: SimpleView
     },
     {
       path: '/two-lists',
       name: 'two-lists',
-      component: () => import('../views/TwoListsView.vue')
+      component: TwoListsView
     }
   ]
 })
