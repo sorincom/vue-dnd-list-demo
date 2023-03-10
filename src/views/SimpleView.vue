@@ -50,7 +50,7 @@ main {
   gap: 10px;
   width: 400px;
   margin: auto;
-  outline: 3px dotted #dadada;
+  outline: 3px solid #f0f0f0;
   outline-offset: 14px;
   border-radius: 4px;
   .list-item {

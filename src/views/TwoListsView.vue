@@ -28,6 +28,7 @@
       </template>
     </DnDList>
   </main>
+  <iframe src="https://github.com/sorincom/vue-dnd-list-demo/raw/main/src/views/TwoListsView.vue" style=""></iframe>
 </template>
 
 <script>
@@ -127,7 +128,7 @@ aside {
   flex-direction: column;
   gap: 10px;
   width: 400px;
-  outline: 3px dotted #dadada;
+  outline: 3px solid #f0f0f0;
   outline-offset: 14px;
   border-radius: 4px;
 

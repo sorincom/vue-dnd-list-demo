@@ -73,7 +73,7 @@ article.custom-drag-source {
   flex-direction: column;
   gap: 10px;
   width: 400px;
-  outline: 3px dotted #dadada;
+  outline: 3px solid #f0f0f0;
   outline-offset: 14px;
   border-radius: 4px;
   .list-item {
