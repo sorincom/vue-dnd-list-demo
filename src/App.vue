@@ -71,6 +71,7 @@ nav {
     align-items: center;
     padding: 10px;
     border-radius: 6px;
+    user-select: none;
   }
 
   &.dragging-over-when-empty {
