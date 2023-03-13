@@ -5,6 +5,7 @@ import CustomDragSourceView from '@/views/CustomDragSourceView.vue'
 import CustomAcceptView from '@/views/CustomAcceptView.vue'
 import PointerEventsView from '@/views/PointerEventsView.vue'
 import CustomAnimationView from '@/views/CustomAnimationView.vue'
+import HorizontalView from '@/views/HorizontalView.vue'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/custom-animation',
       name: 'custom-animation',
       component: CustomAnimationView
+    },
+    {
+      path: '/horizontal',
+      name: 'horizontal',
+      component: HorizontalView
     },
   ]
 })

@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
       <RouterLink :to="{name: 'pointer-events'}">Pointer Events</RouterLink>
       <RouterLink :to="{name: 'custom-animation'}">Custom Animation</RouterLink>
+      <RouterLink :to="{name: 'horizontal'}">Horizontal</RouterLink>
     </nav>
   </header>
   <RouterView />
@@ -69,6 +70,19 @@ nav {
     align-items: center;
     padding: 10px;
     border-radius: 6px;
+  }
+
+  &.dragging-over-when-empty {
+    background: #f0f0f0;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    gap: 10px;
+    width: 80%;
+    align-items: center;
+    overflow-x: auto;
+    min-height: 80px;
   }
 }
 
