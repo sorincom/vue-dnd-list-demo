@@ -3,6 +3,7 @@ import SimpleView from '../views/SimpleView.vue'
 import TwoListsView from '../views/TwoListsView.vue'
 import CustomDragSourceView from '../views/CustomDragSourceView.vue'
 import CustomAcceptView from '../views/CustomAcceptView.vue'
+import PointerEventsView from '../views/PointerEventsView.vue'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,7 +28,12 @@ const router = createRouter({
       path: '/custom-accept',
       name: 'custom-accept',
       component: CustomAcceptView
-    }
+    },
+    {
+      path: '/pointer-events',
+      name: 'pointer-events',
+      component: PointerEventsView
+    },
   ]
 })
 
