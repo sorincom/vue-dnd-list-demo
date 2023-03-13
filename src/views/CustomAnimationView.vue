@@ -27,16 +27,16 @@ export default {
   data() {
     return {
       items: [
-        { id: "id-0", title: "Item A", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-1", title: "Item B", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-2", title: "Item C", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-3", title: "Item D", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-4", title: "Item E", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-5", title: "Item F", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-6", title: "Item G", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-7", title: "Item H", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-8", title: "Item I", color: `hsl(${Math.random() * 360},90%,80%)` },
-        { id: "id-9", title: "Item J", color: `hsl(${Math.random() * 360},90%,80%)` },
+        { id: "id-0", title: "Item A", color: `hsl(  0,90%,80%)` },
+        { id: "id-1", title: "Item B", color: `hsl( 36,90%,80%)` },
+        { id: "id-2", title: "Item C", color: `hsl( 72,90%,80%)` },
+        { id: "id-3", title: "Item D", color: `hsl(108,90%,80%)` },
+        { id: "id-4", title: "Item E", color: `hsl(144,90%,80%)` },
+        { id: "id-5", title: "Item F", color: `hsl(180,90%,80%)` },
+        { id: "id-6", title: "Item G", color: `hsl(216,90%,80%)` },
+        { id: "id-7", title: "Item H", color: `hsl(252,90%,80%)` },
+        { id: "id-8", title: "Item I", color: `hsl(288,90%,80%)` },
+        { id: "id-9", title: "Item J", color: `hsl(324,90%,80%)` },
       ],
     }
   },
