@@ -56,6 +56,7 @@ nav {
   flex-direction: column;
   gap: 10px;
   width: 400px;
+  min-height: 44px;
 
   display: flex;
   flex-direction: column;
