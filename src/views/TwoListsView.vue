@@ -1,43 +1,48 @@
 <template>
-  <aside>
-    <section>
-      <h4>List A</h4>
-      <article><input id="copyA" type="checkbox" v-model="copyA" /><label for="copyA">Copy</label></article>
-      <article><input id="acceptA" type="checkbox" :disabled="disableAcceptA" v-model="acceptA" /><label for="acceptA">Accept</label></article>
-    </section>
-    <section>
-      <h4>List B</h4>
-      <article><input id="copyB" type="checkbox" v-model="copyB" /><label for="copyB">Copy</label></article>
-      <article><input id="acceptB" type="checkbox" :disabled="disableAcceptB" v-model="acceptB" /><label for="acceptB">Accept</label></article>
-    </section>
-  </aside>
-  <main>
-    <DnDList :items="itemsA" :copy="copyA" :accept="acceptA" class="list">
-      <template v-slot:item="{ item }">
-        <div class="list-item" :style="`background: ${item.color};`">
-          <span>{{ item.title }}</span>
-        </div>
-      </template>
-    </DnDList>
-    <DnDList :items="itemsB" :copy="copyB" :accept="acceptB" class="list">
-      <template v-slot:item="{ item, index }">
-        <div class="list-item" :style="`background: ${item.color};`">
-          <span>{{ item.title }}</span>
-          <!-- <button style="pointer-events: all;" @click="onButtonClick(item, index)">Click</button> -->
-        </div>
-      </template>
-    </DnDList>
-  </main>
-  <iframe src="https://github.com/sorincom/vue-dnd-list-demo/raw/main/src/views/TwoListsView.vue" style=""></iframe>
+  <DemoLayout>
+    <template #demo>
+      <DnDList :items="itemsA" :copy="copyA" :accept="acceptA" class="list">
+        <template v-slot:item="{ item }">
+          <div class="list-item" :style="`background: ${item.color};`">
+            <span>{{ item.title }}</span>
+          </div>
+        </template>
+      </DnDList>
+      <DnDList :items="itemsB" :copy="copyB" :accept="acceptB" class="list">
+        <template v-slot:item="{ item }">
+          <div class="list-item" :style="`background: ${item.color};`">
+            <span>{{ item.title }}</span>
+            <!-- <button style="pointer-events: all;" @click="onButtonClick(item, index)">Click</button> -->
+          </div>
+        </template>
+      </DnDList>
+    </template>
+    <template #source>
+      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/TwoListsView.vue">Source</a>
+    </template>
+    <template #setup>
+      <section>
+        <h4>List A</h4>
+        <article><input id="copyA" type="checkbox" v-model="copyA" /><label for="copyA">Copy</label></article>
+        <article><input id="acceptA" type="checkbox" :disabled="disableAcceptA" v-model="acceptA" /><label for="acceptA">Accept</label></article>
+      </section>
+      <section>
+        <h4>List B</h4>
+        <article><input id="copyB" type="checkbox" v-model="copyB" /><label for="copyB">Copy</label></article>
+        <article><input id="acceptB" type="checkbox" :disabled="disableAcceptB" v-model="acceptB" /><label for="acceptB">Accept</label></article>
+      </section>
+    </template>
+  </DemoLayout>
 </template>
 
 <script>
 
 import { DnDList } from 'vue-dnd-list'
+import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'TwoListsView',
-  components: { DnDList },
+  components: { DnDList, DemoLayout },
   data() {
     return {
       copyA: false,
@@ -95,50 +100,3 @@ export default {
 }
 
 </script>
-
-<style scoped lang="scss">
-
-main {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-}
-
-aside {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 10px; 
-  section {
-    padding: 10px;
-  }
-  article {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-  outline: 3px solid #f0f0f0;
-  outline-offset: 14px;
-  border-radius: 4px;
-
-  .list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: 6px;
-  }
-}
-
-</style>

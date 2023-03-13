@@ -1,25 +1,31 @@
 <template>
-  <main>
-    <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
-      Drag Me!
-    </article>
-    <DnDList :items="items" class="list">
-      <template v-slot:item="{ item }">
-        <div class="list-item" :style="`background: ${item.color}`">
-          {{ item.title }}
-        </div>
-      </template>
-    </DnDList>
-  </main>
+  <DemoLayout>
+    <template #demo>
+      <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+        Drag Me!
+      </article>
+      <DnDList :items="items" class="list">
+        <template v-slot:item="{ item }">
+          <div class="list-item" :style="`background: ${item.color}`">
+            {{ item.title }}
+          </div>
+        </template>
+      </DnDList>
+    </template>
+    <template #source>
+      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomDragSourceView.vue">Source</a>
+    </template>
+  </DemoLayout>
 </template>
 
 <script>
 
 import { DnDList, dndSharedState } from 'vue-dnd-list'
+import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'CustomDragSourceView',
-  components: { DnDList },
+  components: { DnDList, DemoLayout },
   data() {
     return {
       items: [
@@ -53,12 +59,6 @@ export default {
 
 <style scoped lang="scss">
 
-main {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-}
-
 article.custom-drag-source {
   align-self: flex-start;
   padding: 20px;
@@ -66,20 +66,6 @@ article.custom-drag-source {
   background: deepskyblue;
   color: white;
   cursor: grab;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-  outline: 3px solid #f0f0f0;
-  outline-offset: 14px;
-  border-radius: 4px;
-  .list-item {
-    padding: 10px;
-    border-radius: 6px;
-  }
 }
 
 </style>

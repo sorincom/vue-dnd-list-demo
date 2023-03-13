@@ -1,22 +1,28 @@
 <template>
-  <main>
-    <DnDList :items="items" class="list">
-      <template v-slot:item="{ item }">
-        <div class="list-item" :style="`background: ${item.color}`">
-          {{ item.title }}
-        </div>
-      </template>
-    </DnDList>
-  </main>
+  <DemoLayout>
+    <template #demo>
+      <DnDList :items="items" class="list">
+        <template v-slot:item="{ item }">
+          <div class="list-item" :style="`background: ${item.color}`">
+            {{ item.title }}
+          </div>
+        </template>
+      </DnDList>
+    </template>
+    <template #source>
+      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/SimpleView.vue">Source</a>
+    </template>
+  </DemoLayout>
 </template>
 
 <script>
 
 import { DnDList } from 'vue-dnd-list'
+import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'SimpleView',
-  components: { DnDList },
+  components: { DnDList, DemoLayout },
   data() {
     return {
       items: [
@@ -36,27 +42,3 @@ export default {
 }
 
 </script>
-
-<style scoped lang="scss">
-
-main {
-  display: flex;
-  gap: 10px;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-  margin: auto;
-  outline: 3px solid #f0f0f0;
-  outline-offset: 14px;
-  border-radius: 4px;
-  .list-item {
-    padding: 10px;
-    border-radius: 6px;
-  }
-}
-
-</style>

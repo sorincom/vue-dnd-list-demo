@@ -11,17 +11,17 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
     </nav>
   </header>
-  <main>
-    <RouterView />
-  </main>
+  <RouterView />
 </template>
 
 <style scoped lang="scss">
 nav {
   display: flex;
+  align-items: center;
   gap: 10px;
   width: 100%;
   padding: 10px;
+  height: 60px;
   a {
     display: inline-block;
     padding: 4px 8px;
@@ -42,10 +42,32 @@ nav {
     }
   }
 }
-main {
-  margin: 10px;
-  main {
-    margin: unset;
+
+</style>
+
+<style lang="scss">
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  outline: 3px solid #f0f0f0;
+  outline-offset: 10px;
+  border-radius: 4px;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
   }
 }
+
 </style>

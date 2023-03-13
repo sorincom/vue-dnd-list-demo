@@ -1,70 +1,71 @@
 <template>
-  <aside>
-    <section>
-      <h4>foo accepts from:</h4>
-      <article><input id="acceptFoo1" type="checkbox" value="bar" v-model="acceptFoo" /><label for="acceptFoo1">bar</label></article>
-      <article><input id="acceptFoo2" type="checkbox" value="baz" v-model="acceptFoo" /><label for="acceptFoo2">baz</label></article>
-      <article><input id="acceptFoo3" type="checkbox" value="blue-rect" v-model="acceptFoo" /><label for="acceptFoo3">blue rect</label></article>
-    </section>
-    <section>
-      <h4>bar accepts from:</h4>
-      <article><input id="acceptBar1" type="checkbox" value="foo" v-model="acceptBar" /><label for="acceptBar1">foo</label></article>
-      <article><input id="acceptBar2" type="checkbox" value="baz" v-model="acceptBar" /><label for="acceptBar2">baz</label></article>
-      <article><input id="acceptBar3" type="checkbox" value="blue-rect" v-model="acceptBar" /><label for="acceptBar3">blue rect</label></article>
-    </section>
-    <section>
-      <h4>baz accepts from:</h4>
-      <article><input id="acceptBaz1" type="checkbox" value="foo" v-model="acceptBaz" /><label for="acceptBaz1">foo</label></article>
-      <article><input id="acceptBaz2" type="checkbox" value="bar" v-model="acceptBaz" /><label for="acceptBaz2">bar</label></article>
-      <article><input id="acceptBaz3" type="checkbox" value="blue-rect" v-model="acceptBaz" /><label for="acceptBaz3">blue rect</label></article>
-    </section>
-  </aside>
-  <main>
-    <section>
+  <DemoLayout>
+    <template #demo>
       <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
         Drag Me!
       </article>
-    </section>
-    <section>
-      <div>foo</div>
-      <DnDList listId="foo" :items="itemsFoo" :accept="acceptFoo" class="list">
-        <template v-slot:item="{ item }">
-          <div class="list-item" :style="`background: ${item.color};`">
-            <span>{{ item.title }}</span>
-          </div>
-        </template>
-      </DnDList>
-    </section>
-    <section>
-      <div>bar</div>
-      <DnDList listId="bar" :items="itemsBar" :accept="acceptBar" class="list">
-        <template v-slot:item="{ item, index }">
-          <div class="list-item" :style="`background: ${item.color};`">
-            <span>{{ item.title }}</span>
-          </div>
-        </template>
-      </DnDList>
-    </section>
-    <section>
-      <div>baz</div>
-      <DnDList listId="baz" :items="itemsBaz" :accept="acceptBaz" class="list">
-        <template v-slot:item="{ item, index }">
-          <div class="list-item" :style="`background: ${item.color};`">
-            <span>{{ item.title }}</span>
-          </div>
-        </template>
-      </DnDList>
-    </section>
-  </main>
+      <section class="foo">
+        <DnDList listId="foo" :items="itemsFoo" :accept="acceptFoo" class="list">
+          <template v-slot:item="{ item }">
+            <div class="list-item" :style="`background: ${item.color};`">
+              <span>{{ item.title }}</span>
+            </div>
+          </template>
+        </DnDList>
+      </section>
+      <section class="bar">
+        <DnDList listId="bar" :items="itemsBar" :accept="acceptBar" class="list">
+          <template v-slot:item="{ item, index }">
+            <div class="list-item" :style="`background: ${item.color};`">
+              <span>{{ item.title }}</span>
+            </div>
+          </template>
+        </DnDList>
+      </section>
+      <section class="baz">
+        <DnDList listId="baz" :items="itemsBaz" :accept="acceptBaz" class="list">
+          <template v-slot:item="{ item, index }">
+            <div class="list-item" :style="`background: ${item.color};`">
+              <span>{{ item.title }}</span>
+            </div>
+          </template>
+        </DnDList>
+      </section>
+    </template>
+    <template #source>
+      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomAcceptView.vue">Source</a>
+    </template>
+    <template #setup>
+      <section>
+        <h4>foo accepts from:</h4>
+        <article><input id="acceptFoo1" type="checkbox" value="bar" v-model="acceptFoo" /><label for="acceptFoo1">bar</label></article>
+        <article><input id="acceptFoo2" type="checkbox" value="baz" v-model="acceptFoo" /><label for="acceptFoo2">baz</label></article>
+        <article><input id="acceptFoo3" type="checkbox" value="blue-rect" v-model="acceptFoo" /><label for="acceptFoo3">blue rect</label></article>
+      </section>
+      <section>
+        <h4>bar accepts from:</h4>
+        <article><input id="acceptBar1" type="checkbox" value="foo" v-model="acceptBar" /><label for="acceptBar1">foo</label></article>
+        <article><input id="acceptBar2" type="checkbox" value="baz" v-model="acceptBar" /><label for="acceptBar2">baz</label></article>
+        <article><input id="acceptBar3" type="checkbox" value="blue-rect" v-model="acceptBar" /><label for="acceptBar3">blue rect</label></article>
+      </section>
+      <section>
+        <h4>baz accepts from:</h4>
+        <article><input id="acceptBaz1" type="checkbox" value="foo" v-model="acceptBaz" /><label for="acceptBaz1">foo</label></article>
+        <article><input id="acceptBaz2" type="checkbox" value="bar" v-model="acceptBaz" /><label for="acceptBaz2">bar</label></article>
+        <article><input id="acceptBaz3" type="checkbox" value="blue-rect" v-model="acceptBaz" /><label for="acceptBaz3">blue rect</label></article>
+      </section>
+    </template>
+  </DemoLayout>
 </template>
 
 <script>
 
 import { DnDList, dndSharedState } from 'vue-dnd-list'
+import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'CustomAcceptView',
-  components: { DnDList },
+  components: { DnDList, DemoLayout },
   data() {
     return {
       acceptFoo: ['bar', 'baz', 'blue-rect'],
@@ -126,61 +127,44 @@ export default {
 
 <style scoped lang="scss">
 
-main {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  >section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.list {
+  width: 300px;
+}
+
+.foo, .bar, .baz {
+  &::before {
+    display: block;
+    position: relative;
+    top: -20px;
+    margin-top: -20px;
   }
 }
 
-aside {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 10px; 
-  section {
-    padding: 10px;
+.foo {
+  &::before {
+    content: 'foo';
   }
-  article {
-    display: flex;
-    gap: 5px;
-    align-items: center;
+}
+
+.bar {
+  &::before {
+    content: 'bar';
+  }
+}
+
+.baz {
+  &::before {
+    content: 'baz';
   }
 }
 
 article.custom-drag-source {
-  margin-top: 40px;
+  align-self: flex-start;
   padding: 20px;
   border-radius: 6px;
   background: deepskyblue;
   color: white;
   cursor: grab;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-  outline: 3px solid #f0f0f0;
-  outline-offset: 14px;
-  border-radius: 4px;
-
-  .list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: 6px;
-  }
 }
 
 </style>
