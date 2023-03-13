@@ -12,7 +12,6 @@
         <template v-slot:item="{ item }">
           <div class="list-item" :style="`background: ${item.color};`">
             <span>{{ item.title }}</span>
-            <!-- <button style="pointer-events: all;" @click="onButtonClick(item, index)">Click</button> -->
           </div>
         </template>
       </DnDList>
