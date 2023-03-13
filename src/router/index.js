@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import SimpleView from '@/views/SimpleView.vue'
+import DragHandleView from '@/views/DragHandleView.vue'
 import TwoListsView from '@/views/TwoListsView.vue'
 import CustomDragSourceView from '@/views/CustomDragSourceView.vue'
 import CustomAcceptView from '@/views/CustomAcceptView.vue'
@@ -15,6 +16,11 @@ const router = createRouter({
       path: '/',
       name: 'simple',
       component: SimpleView
+    },
+    {
+      path: '/drag-handle',
+      name: 'drag-handle',
+      component: DragHandleView
     },
     {
       path: '/two-lists',

@@ -6,6 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <nav>
       <RouterLink :to="{name: 'simple'}">Simple</RouterLink>
+      <RouterLink :to="{name: 'drag-handle'}">Drag Handle</RouterLink>
       <RouterLink :to="{name: 'two-lists'}">Two Lists</RouterLink>
       <RouterLink :to="{name: 'custom-drag-source'}">Custom Drag Source</RouterLink>
       <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
