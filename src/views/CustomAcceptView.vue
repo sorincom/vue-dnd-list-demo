@@ -40,19 +40,19 @@
         <h4>foo accepts from:</h4>
         <article><input id="acceptFoo1" type="checkbox" value="bar" v-model="acceptFoo" /><label for="acceptFoo1">bar</label></article>
         <article><input id="acceptFoo2" type="checkbox" value="baz" v-model="acceptFoo" /><label for="acceptFoo2">baz</label></article>
-        <article><input id="acceptFoo3" type="checkbox" value="blue-rect" v-model="acceptFoo" /><label for="acceptFoo3">blue rect</label></article>
+        <article><input id="acceptFoo3" type="checkbox" value="blue-circle" v-model="acceptFoo" /><label for="acceptFoo3">blue circle</label></article>
       </section>
       <section>
         <h4>bar accepts from:</h4>
         <article><input id="acceptBar1" type="checkbox" value="foo" v-model="acceptBar" /><label for="acceptBar1">foo</label></article>
         <article><input id="acceptBar2" type="checkbox" value="baz" v-model="acceptBar" /><label for="acceptBar2">baz</label></article>
-        <article><input id="acceptBar3" type="checkbox" value="blue-rect" v-model="acceptBar" /><label for="acceptBar3">blue rect</label></article>
+        <article><input id="acceptBar3" type="checkbox" value="blue-circle" v-model="acceptBar" /><label for="acceptBar3">blue circle</label></article>
       </section>
       <section>
         <h4>baz accepts from:</h4>
         <article><input id="acceptBaz1" type="checkbox" value="foo" v-model="acceptBaz" /><label for="acceptBaz1">foo</label></article>
         <article><input id="acceptBaz2" type="checkbox" value="bar" v-model="acceptBaz" /><label for="acceptBaz2">bar</label></article>
-        <article><input id="acceptBaz3" type="checkbox" value="blue-rect" v-model="acceptBaz" /><label for="acceptBaz3">blue rect</label></article>
+        <article><input id="acceptBaz3" type="checkbox" value="blue-circle" v-model="acceptBaz" /><label for="acceptBaz3">blue circle</label></article>
       </section>
     </template>
   </DemoLayout>
@@ -68,9 +68,9 @@ export default {
   components: { DnDList, DemoLayout },
   data() {
     return {
-      acceptFoo: ['bar', 'baz', 'blue-rect'],
-      acceptBar: ['foo', 'baz', 'blue-rect'],
-      acceptBaz: ['foo', 'bar', 'blue-rect'],
+      acceptFoo: ['bar', 'baz', 'blue-circle'],
+      acceptBar: ['foo', 'baz', 'blue-circle'],
+      acceptBaz: ['foo', 'bar', 'blue-circle'],
       itemsFoo: [
         { id: "id-foo0", title: "Item foo-0", color: `hsl(330,90%,90%)` },
         { id: "id-foo1", title: "Item foo-1", color: `hsl(330,90%,88%)` },
@@ -112,7 +112,7 @@ export default {
   methods: {
     dragstart(e) {
       dndSharedState.patch({
-        sourceList: 'blue-rect',
+        sourceList: 'blue-circle',
         draggedItem: {
           id: 'x',
           title: 'Dragged Item',
@@ -156,15 +156,6 @@ export default {
   &::before {
     content: 'baz';
   }
-}
-
-article.custom-drag-source {
-  align-self: flex-start;
-  padding: 20px;
-  border-radius: 6px;
-  background: deepskyblue;
-  color: white;
-  cursor: grab;
 }
 
 </style>

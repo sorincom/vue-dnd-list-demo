@@ -70,4 +70,16 @@ nav {
   }
 }
 
+.custom-drag-source {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: deepskyblue;
+  color: white;
+  cursor: grab;
+}
+
 </style>

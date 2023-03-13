@@ -56,16 +56,3 @@ export default {
 }
 
 </script>
-
-<style scoped lang="scss">
-
-article.custom-drag-source {
-  align-self: flex-start;
-  padding: 20px;
-  border-radius: 6px;
-  background: deepskyblue;
-  color: white;
-  cursor: grab;
-}
-
-</style>
