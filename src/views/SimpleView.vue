@@ -9,6 +9,9 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      Simple list with default configuration.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/SimpleView.vue">Source</a>
     </template>

@@ -9,6 +9,9 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      Custom animation using the GreenSock library.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomAnimationView.vue">Source</a>
     </template>
@@ -40,19 +43,38 @@ export default {
       ],
     }
   },
-  methods: {
-    customAnimation(el) {
+  computed: {
+    customAnimation() {
       // Uses greensock animation library
       // https://greensock.com/docs/v3/GSAP/gsap.fromTo()
-      gsap.fromTo(el, 
-      {
-        x: '+=40',
-      },
-      {
-        x: 0,
-        duration: 0.25,
-        ease: 'back'
-      })
+      return {
+        onEnter(el, { onComplete }) {
+          gsap.fromTo(el, 
+          {
+            opacity: 0,
+            y: '+=40px'
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.25,
+            ease: 'back(1.1)',
+            onComplete,
+          })
+        },
+        onLeave(el, { onComplete }) {
+          gsap.to(el, {
+            height: 0,
+            opacity: 0,
+            // compensate for the list gap of 10px, as the item is not
+            // removed yet from list's items at the end of the animation
+            marginTop: -10,
+            duration: 0.25,
+            ease: 'linear',
+            onComplete,
+          })
+        },
+      }
     },
   }
 }

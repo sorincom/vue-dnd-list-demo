@@ -10,6 +10,9 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      List items can be dragged only by their right handle.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/DragHandleView.vue">Source</a>
     </template>
@@ -51,12 +54,12 @@ export default {
   justify-content: flex-end;
   user-select: none;
   pointer-events: all;
-  /* float: right; */
   cursor: grabbing;
-  // border: 1px solid red;
-  min-width:20px;
   &:before {
-    content: "::";
+    content: "።";
+    margin: -8px 0;
+    font-size: 24px;
+    color: rgba(#000, 0.6);
   }
 }
 

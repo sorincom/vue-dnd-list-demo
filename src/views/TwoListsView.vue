@@ -16,6 +16,9 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      Drag and drop between two lists using builtin shared DnD state.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/TwoListsView.vue">Source</a>
     </template>

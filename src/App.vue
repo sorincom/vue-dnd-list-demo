@@ -58,10 +58,6 @@ nav {
   width: 400px;
   min-height: 44px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
   outline: 3px solid #f0f0f0;
   outline-offset: 10px;
   border-radius: 4px;
@@ -85,7 +81,8 @@ nav {
     width: 80%;
     align-items: center;
     overflow-x: auto;
-    min-height: 80px;
+    overflow-y: hidden;
+    min-height: 60px;
   }
 }
 
@@ -93,12 +90,14 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: deepskyblue;
+  background-color: dodgerblue;
   color: white;
   cursor: grab;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 </style>

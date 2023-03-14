@@ -4,6 +4,9 @@
       <slot name="demo"></slot>
     </main>
     <aside>
+      <section class="description">
+        <slot name="description"></slot>
+      </section>
       <section class="source">
         <slot name="source"></slot>
       </section>
@@ -34,16 +37,21 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    gap: 10px;
     padding: 20px;
     min-height: 100%;
     border-top-left-radius: 10px;
     background: #fafafa;
+    .description {
+      border-bottom: 1px solid rgba(#000, 0.075);
+      padding-bottom: 10px;
+    }
     &:deep(article) {
       display: flex;
       gap: 10px;
     }
     &:deep(h4) {
-      margin-top: 20px;
+      margin-top: 10px;
     }
   }
 }

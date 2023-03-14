@@ -10,12 +10,14 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      By default, pointer events are disabled inside list item elements. This shows how to re-enable them.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/PointerEventsView.vue">Source</a>
     </template>
     <template #setup>
       <section>
-        <h4>&nbsp;</h4>
         <article><input id="pe" type="checkbox" v-model="usePointerEvents" /><label for="pe">Use Pointer Events</label></article>
       </section>
     </template>

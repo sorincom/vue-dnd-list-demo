@@ -4,13 +4,16 @@
       <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
         Drag Me!
       </article>
-      <DnDList :items="items" class="list horizontal" horizontal>
+      <DnDList :items="items" class="list horizontal" horizontal :animation="customAnimation">
         <template v-slot:item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}
           </div>
         </template>
       </DnDList>
+    </template>
+    <template #description>
+      Horizontal list with custom animation.
     </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/HorizontalView.vue">Source</a>
@@ -20,6 +23,7 @@
 
 <script>
 
+import gsap from 'gsap'
 import { DnDList, dndSharedState } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
@@ -42,16 +46,54 @@ export default {
       ],
     }
   },
+  computed: {
+    customAnimation() {
+      // Uses greensock animation library
+      // https://greensock.com/docs/v3/GSAP/gsap.fromTo()
+      return {
+        onEnter(el, { onComplete }) {
+          gsap.fromTo(el, 
+          {
+            opacity: 0,
+            y: '+=40',
+            scale: 0.1
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.25,
+            ease: 'back(1.1)',
+            onComplete,
+          })
+        },
+        onLeave(el, { onComplete }) {
+          gsap.fromTo(el, 
+          {
+            height: el.offsetHeight
+          },
+          {
+            scale: 0.1,
+            height: el.offsetHeight,
+            width: 0,
+            duration: .2,
+            ease: 'linear',
+            onComplete,
+          })
+        },
+      }
+    },
+  },
   methods: {
     dragstart(e) {
       dndSharedState.patch({
         draggedItem: {
           id: 'x',
           title: 'Dragged Item',
-          color: 'deepskyblue'
+          color: 'dodgerblue'
         }
       })
-    }
+    },
   }
 }
 

@@ -12,6 +12,9 @@
         </template>
       </DnDList>
     </template>
+    <template #description>
+      Explicitely using shared DnD state to pass data from an external source to a list.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomDragSourceView.vue">Source</a>
     </template>
@@ -48,7 +51,7 @@ export default {
         draggedItem: {
           id: 'x',
           title: 'Dragged Item',
-          color: 'deepskyblue'
+          color: 'dodgerblue'
         }
       })
     }

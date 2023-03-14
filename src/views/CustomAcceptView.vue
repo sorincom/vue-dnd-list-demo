@@ -32,6 +32,9 @@
         </DnDList>
       </section>
     </template>
+    <template #description>
+      Control from which sources each list accepts items.
+    </template>
     <template #source>
       <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomAcceptView.vue">Source</a>
     </template>
@@ -116,7 +119,7 @@ export default {
         draggedItem: {
           id: 'x',
           title: 'Dragged Item',
-          color: 'deepskyblue'
+          color: 'dodgerblue'
         }
       })
     }
