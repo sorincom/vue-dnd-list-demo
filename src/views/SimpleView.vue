@@ -1,8 +1,8 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <DnDList :items="items" class="list">
-        <template v-slot:item="{ item }">
+      <DnDList :items="items" class="list" @dndcancel="onDnDCancel">
+        <template #item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}
           </div>
@@ -42,6 +42,11 @@ export default {
       ],
     }
   },
+  methods: {
+    onDnDCancel() {
+      console.log('dnd:cancel')
+    }
+  }
 }
 
 </script>

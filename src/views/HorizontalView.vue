@@ -24,7 +24,7 @@
 <script>
 
 import gsap from 'gsap'
-import { DnDList, dndSharedState } from 'vue-dnd-list'
+import { DnDList, dnd } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
@@ -85,13 +85,11 @@ export default {
     },
   },
   methods: {
-    dragstart(e) {
-      dndSharedState.patch({
-        draggedItem: {
-          id: 'x',
-          title: 'Dragged Item',
-          color: 'dodgerblue'
-        }
+    dragstart() {
+      dnd.start(null, {
+        id: 'x',
+        title: 'Dragged Item',
+        color: 'dodgerblue'
       })
     },
   }

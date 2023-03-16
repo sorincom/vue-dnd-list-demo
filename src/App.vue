@@ -10,9 +10,9 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink :to="{name: 'two-lists'}">Two Lists</RouterLink>
       <RouterLink :to="{name: 'custom-drag-source'}">Custom Drag Source</RouterLink>
       <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
-      <RouterLink :to="{name: 'pointer-events'}">Pointer Events</RouterLink>
       <RouterLink :to="{name: 'custom-animation'}">Custom Animation</RouterLink>
       <RouterLink :to="{name: 'horizontal'}">Horizontal</RouterLink>
+      <RouterLink :to="{name: 'post-drop'}">Post Drop</RouterLink>
     </nav>
   </header>
   <RouterView />

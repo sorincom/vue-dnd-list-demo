@@ -4,7 +4,7 @@
       <slot name="demo"></slot>
     </main>
     <aside>
-      <section class="description">
+      <section :draggable="true" class="description">
         <slot name="description"></slot>
       </section>
       <section class="source">
@@ -13,9 +13,21 @@
       <section class="setup">
         <slot name="setup"></slot>
       </section>
+      <section class="debug">
+        <textarea :value="dndState" readonly></textarea>
+      </section>
     </aside>
   </section>
 </template>
+
+<script>
+import { dnd } from 'vue-dnd-list'
+export default {
+  computed: {
+    dndState: () => dnd.asJson.value
+  }
+}
+</script>
 
 <style scoped lang="scss">
 
@@ -43,6 +55,7 @@
     border-top-left-radius: 10px;
     background: #fafafa;
     .description {
+      user-select: none;
       border-bottom: 1px solid rgba(#000, 0.075);
       padding-bottom: 10px;
     }
@@ -52,6 +65,18 @@
     }
     &:deep(h4) {
       margin-top: 10px;
+    }
+    .debug {
+      flex: 1;
+      textarea {
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(#000, 0.075);
+        font-family: monospace;
+        font-size: 12px;
+        padding: 10px;
+        justify-self: flex-end;
+      }
     }
   }
 }

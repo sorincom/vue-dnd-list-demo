@@ -4,9 +4,9 @@ import DragHandleView from '@/views/DragHandleView.vue'
 import TwoListsView from '@/views/TwoListsView.vue'
 import CustomDragSourceView from '@/views/CustomDragSourceView.vue'
 import CustomAcceptView from '@/views/CustomAcceptView.vue'
-import PointerEventsView from '@/views/PointerEventsView.vue'
 import CustomAnimationView from '@/views/CustomAnimationView.vue'
 import HorizontalView from '@/views/HorizontalView.vue'
+import PostDropView from '@/views/PostDropView.vue'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,11 +38,6 @@ const router = createRouter({
       component: CustomAcceptView
     },
     {
-      path: '/pointer-events',
-      name: 'pointer-events',
-      component: PointerEventsView
-    },
-    {
       path: '/custom-animation',
       name: 'custom-animation',
       component: CustomAnimationView
@@ -52,6 +47,11 @@ const router = createRouter({
       name: 'horizontal',
       component: HorizontalView
     },
+    {
+      path: '/post-drop',
+      name: 'post-drop',
+      component: PostDropView
+    }
   ]
 })
 

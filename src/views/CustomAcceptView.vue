@@ -63,7 +63,7 @@
 
 <script>
 
-import { DnDList, dndSharedState } from 'vue-dnd-list'
+import { DnDList, dnd } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
@@ -113,14 +113,11 @@ export default {
     }
   },
   methods: {
-    dragstart(e) {
-      dndSharedState.patch({
-        sourceList: 'blue-circle',
-        draggedItem: {
-          id: 'x',
-          title: 'Dragged Item',
-          color: 'dodgerblue'
-        }
+    dragstart() {
+      dnd.start('blue-circle', {
+        id: 'x',
+        title: 'Dragged Item',
+        color: 'dodgerblue'
       })
     }
   }

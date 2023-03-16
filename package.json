@@ -3,16 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "use-local": "npm uninstall vue-dnd-list && yes | cp ../dnd-list/vue-dnd-list-0.0.7.tgz ./ && npm install vue-dnd-list-0.0.7.tgz && npm run dev",
+    "use-local": "npm uninstall vue-dnd-list && yes | cp ../dnd-list/vue-dnd-list-0.0.8.tgz ./ && npm install vue-dnd-list-0.0.8.tgz && npm run dev",
     "use-repo": "npm uninstall vue-dnd-list && npm install vue-dnd-list && npm run dev"
   },
   "dependencies": {
     "gsap": "^3.11.4",
     "vue": "^3.2.47",
-    "vue-dnd-list": "^0.0.8",
+    "vue-dnd-list": "^0.0.9",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
