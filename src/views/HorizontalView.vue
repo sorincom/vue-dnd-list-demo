@@ -4,7 +4,7 @@
       <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
         Drag Me!
       </article>
-      <DnDList :items="items" class="list horizontal" horizontal :animation="customAnimation">
+      <DnDList :items="items" class="list horizontal" :animation="customAnimation">
         <template v-slot:item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}

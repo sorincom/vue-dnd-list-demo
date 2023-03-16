@@ -12,6 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink :to="{name: 'custom-accept'}">Custom Accept</RouterLink>
       <RouterLink :to="{name: 'custom-animation'}">Custom Animation</RouterLink>
       <RouterLink :to="{name: 'horizontal'}">Horizontal</RouterLink>
+      <RouterLink :to="{name: 'grid'}">Grid</RouterLink>
       <RouterLink :to="{name: 'post-drop'}">Post Drop</RouterLink>
     </nav>
   </header>
@@ -62,15 +63,6 @@ nav {
   outline-offset: 10px;
   border-radius: 4px;
 
-  .list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: 6px;
-    user-select: none;
-  }
-
   &.dragging-over-when-empty {
     background: #f0f0f0;
   }
@@ -84,6 +76,31 @@ nav {
     overflow-y: hidden;
     min-height: 60px;
   }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  width: 400px;
+  min-height: 44px;
+
+  outline: 3px solid #f0f0f0;
+  outline-offset: 10px;
+  border-radius: 4px;
+
+  &.dragging-over-when-empty {
+    background: #f0f0f0;
+  }
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+  user-select: none;
 }
 
 .custom-drag-source {

@@ -6,6 +6,7 @@ import CustomDragSourceView from '@/views/CustomDragSourceView.vue'
 import CustomAcceptView from '@/views/CustomAcceptView.vue'
 import CustomAnimationView from '@/views/CustomAnimationView.vue'
 import HorizontalView from '@/views/HorizontalView.vue'
+import GridView from '@/views/GridView.vue'
 import PostDropView from '@/views/PostDropView.vue'
 
 const router = createRouter({
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/horizontal',
       name: 'horizontal',
       component: HorizontalView
+    },
+    {
+      path: '/grid',
+      name: 'grid',
+      component: GridView
     },
     {
       path: '/post-drop',
