@@ -14,6 +14,7 @@
         <slot name="setup"></slot>
       </section>
       <section class="debug">
+        <textarea :value="env" readonly></textarea>
         <textarea :value="dndState" readonly></textarea>
       </section>
     </aside>
@@ -24,6 +25,7 @@
 import { dnd } from 'vue-dnd-list'
 export default {
   computed: {
+    env: () => JSON.stringify(import.meta.env, null, 2),
     dndState: () => dnd.asJson.value
   }
 }
@@ -68,9 +70,12 @@ export default {
     }
     .debug {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       textarea {
         width: 100%;
-        height: 100%;
+        flex: 1;
         border: 1px solid rgba(#000, 0.075);
         font-family: monospace;
         font-size: 12px;

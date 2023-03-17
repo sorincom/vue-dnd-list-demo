@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+      <article :draggable="true" @dragstart="dragstart" @dragend="dragend" class="custom-drag-source">
         Drag Me!
       </article>
       <section class="foo">
@@ -114,12 +114,17 @@ export default {
   },
   methods: {
     dragstart() {
-      dnd.start('blue-circle', {
+      dnd.startExternal('blue-circle', {
         id: 'x',
         title: 'Dragged Item',
         color: 'dodgerblue'
       })
-    }
+    },
+    dragend(evt) {
+      if(evt.dataTransfer.dropEffect == 'none') {
+        dnd.cancelExternal('blue-circle')
+      }
+    },
   }
 }
 
