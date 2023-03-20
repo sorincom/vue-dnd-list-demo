@@ -14,7 +14,9 @@
         <slot name="setup"></slot>
       </section>
       <section class="debug">
+        <strong>Environment:</strong>
         <textarea :value="env" readonly></textarea>
+        <strong>DnD shared state:</strong>
         <textarea :value="dndState" readonly></textarea>
       </section>
     </aside>
@@ -78,9 +80,8 @@ export default {
         flex: 1;
         border: 1px solid rgba(#000, 0.075);
         font-family: monospace;
-        font-size: 12px;
-        padding: 10px;
-        justify-self: flex-end;
+        font-size: 10px;
+        padding: 4px;
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+      <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
       <DnDList :items="items" class="grid">
@@ -23,12 +23,13 @@
 
 <script>
 
-import { DnDList, dnd } from 'vue-dnd-list'
+import { DnDList, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'GridView',
   components: { DnDList, DemoLayout },
+  directives: { dragsource },
   data() {
     return {
       items: [
@@ -43,15 +44,14 @@ export default {
         { id: "id-a8", title: "Item A-8", color: `hsl(330,90%,74%)` },
         { id: "id-a9", title: "Item A-9", color: `hsl(330,90%,72%)` },
       ],
-    }
-  },
-  methods: {
-    dragstart() {
-      dnd.start(null, {
-        id: 'x',
-        title: 'Dragged Item',
-        color: 'dodgerblue'
-      })
+      customItem: {
+        source: 'blue-circle',
+        data: {
+          id: 'x',
+          title: 'Dragged Item',
+          color: 'dodgerblue'
+        }
+      }
     }
   }
 }

@@ -14,6 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink :to="{name: 'horizontal'}">Horizontal</RouterLink>
       <RouterLink :to="{name: 'grid'}">Grid</RouterLink>
       <RouterLink :to="{name: 'post-drop'}">Post Drop</RouterLink>
+      <RouterLink :to="{name: 'gap-optimization'}">Gap Optimization</RouterLink>
     </nav>
   </header>
   <RouterView />
@@ -58,6 +59,9 @@ nav {
   gap: 10px;
   width: 400px;
   min-height: 44px;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   outline: 3px solid #f0f0f0;
   outline-offset: 10px;
@@ -82,8 +86,8 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
-  width: 400px;
-  min-height: 44px;
+  width: 600px;
+  min-height: 60px;
 
   outline: 3px solid #f0f0f0;
   outline-offset: 10px;

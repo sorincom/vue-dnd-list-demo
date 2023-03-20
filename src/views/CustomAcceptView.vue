@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <article :draggable="true" @dragstart="dragstart" @dragend="dragend" class="custom-drag-source">
+      <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
       <section class="foo">
@@ -63,12 +63,13 @@
 
 <script>
 
-import { DnDList, dnd } from 'vue-dnd-list'
+import { DnDList, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'CustomAcceptView',
   components: { DnDList, DemoLayout },
+  directives: { dragsource },
   data() {
     return {
       acceptFoo: ['bar', 'baz', 'blue-circle'],
@@ -110,21 +111,15 @@ export default {
         { id: "id-baz8", title: "Item baz-8", color: `hsl(100,90%,74%)` },
         { id: "id-baz9", title: "Item baz-9", color: `hsl(100,90%,72%)` },
       ],
-    }
-  },
-  methods: {
-    dragstart() {
-      dnd.startExternal('blue-circle', {
-        id: 'x',
-        title: 'Dragged Item',
-        color: 'dodgerblue'
-      })
-    },
-    dragend(evt) {
-      if(evt.dataTransfer.dropEffect == 'none') {
-        dnd.cancelExternal('blue-circle')
+      customItem: {
+        source: 'blue-circle',
+        data: {
+          id: 'x',
+          title: 'Dragged Item',
+          color: 'dodgerblue'
+        }
       }
-    },
+    }
   }
 }
 

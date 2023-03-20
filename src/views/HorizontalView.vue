@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+      <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
       <DnDList :items="items" class="list horizontal" :animation="customAnimation">
@@ -24,12 +24,13 @@
 <script>
 
 import gsap from 'gsap'
-import { DnDList, dnd } from 'vue-dnd-list'
+import { DnDList, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'CustomDragSourceView',
   components: { DnDList, DemoLayout },
+  directives: { dragsource },
   data() {
     return {
       items: [
@@ -44,6 +45,14 @@ export default {
         { id: "id-8", title: "Item I", color: `hsl(288,90%,80%)` },
         { id: "id-9", title: "Item J", color: `hsl(324,90%,80%)` },
       ],
+      customItem: {
+        source: 'blue-circle',
+        data: {
+          id: 'x',
+          title: 'Dragged Item',
+          color: 'dodgerblue'
+        }
+      }
     }
   },
   computed: {
@@ -82,15 +91,6 @@ export default {
           })
         },
       }
-    },
-  },
-  methods: {
-    dragstart() {
-      dnd.start(null, {
-        id: 'x',
-        title: 'Dragged Item',
-        color: 'dodgerblue'
-      })
     },
   }
 }

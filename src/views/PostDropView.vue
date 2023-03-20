@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <article :draggable="true" @dragstart="dragstart" class="custom-drag-source">
+      <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
       <DnDList listId="source-list" :items="sourceItems" :accept="false" :copy="true" class="list">
@@ -30,12 +30,13 @@
 
 <script>
 
-import { DnDList, dnd } from 'vue-dnd-list'
+import { DnDList, dnd, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
   name: 'PostDropView',
   components: { DnDList, DemoLayout },
+  directives: { dragsource },
   data() {
     return {
       sourceItems: [
@@ -62,16 +63,17 @@ export default {
         { id: "b8", title: "Item B-8", color: `hsl(200,90%,74%)` },
         { id: "b9", title: "Item B-9", color: `hsl(200,90%,72%)` },
       ],
+      customItem: {
+        source: 'blue-circle',
+        data: {
+          id: 'x',
+          title: 'Dragged Item',
+          color: 'dodgerblue'
+        }
+      }
     }
   },
   methods: {
-    dragstart() {
-      dnd.start('blue-circle', {
-        id: 'x',
-        title: 'Dragged Item',
-        color: 'dodgerblue'
-      })
-    },
     postDrop(item) {
       if(dnd.source.value === 'this-list') return
       

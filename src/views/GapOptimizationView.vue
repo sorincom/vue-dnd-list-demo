@@ -4,7 +4,7 @@
       <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
-      <DnDList :items="items" class="list">
+      <DnDList :items="items" class="list" :useGapOptimization="useGapOptimization">
         <template v-slot:item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}
@@ -13,10 +13,20 @@
       </DnDList>
     </template>
     <template #description>
-      Using the <code>v-dragsource</code> directive to drag from an external source to a list.
+      <p>
+        Using the gap optimization feature (enabled by default). Gap between list items is exaggerated for demonstration purposes.
+      </p>
+      <p>
+        To see how it works, uncheck `Use Gap Optimization` and drag the blue circle inside the list through a gap between items.
+      </p>
     </template>
     <template #source>
-      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/CustomDragSourceView.vue">Source</a>
+      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/GapOptimizationView.vue">Source</a>
+    </template>
+    <template #setup>
+      <section>
+        <article><input id="useGapOptimization" type="checkbox" v-model="useGapOptimization" /><label for="useGapOptimization">Use Gap Optimization</label></article>
+      </section>
     </template>
   </DemoLayout>
 </template>
@@ -27,7 +37,7 @@ import { DnDList, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
 export default {
-  name: 'CustomDragSourceView',
+  name: 'GapOptimizationView',
   components: { DnDList, DemoLayout },
   directives: { dragsource },
   data() {
@@ -36,13 +46,6 @@ export default {
         { id: "id-0", title: "Item A", color: `hsl(  0,90%,80%)` },
         { id: "id-1", title: "Item B", color: `hsl( 36,90%,80%)` },
         { id: "id-2", title: "Item C", color: `hsl( 72,90%,80%)` },
-        { id: "id-3", title: "Item D", color: `hsl(108,90%,80%)` },
-        { id: "id-4", title: "Item E", color: `hsl(144,90%,80%)` },
-        { id: "id-5", title: "Item F", color: `hsl(180,90%,80%)` },
-        { id: "id-6", title: "Item G", color: `hsl(216,90%,80%)` },
-        { id: "id-7", title: "Item H", color: `hsl(252,90%,80%)` },
-        { id: "id-8", title: "Item I", color: `hsl(288,90%,80%)` },
-        { id: "id-9", title: "Item J", color: `hsl(324,90%,80%)` },
       ],
       customItem: {
         source: 'blue-circle',
@@ -51,9 +54,19 @@ export default {
           title: 'Dragged Item',
           color: 'dodgerblue'
         }
-      }
+      },
+      useGapOptimization: true
     }
   },
 }
 
 </script>
+
+<style scoped>
+
+.list {
+  gap: 100px;
+  max-height: unset;
+}
+
+</style>
