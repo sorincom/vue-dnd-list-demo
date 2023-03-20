@@ -1,7 +1,7 @@
 <template>
   <DemoLayout>
     <template #demo>
-      <DnDList :items="items" class="list" @dndcancel="onDnDCancel">
+      <DnDList :items="items" class="list">
         <template #item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}
@@ -40,11 +40,6 @@ export default {
         { id: "id-8", title: "Item I", color: `hsl(288,90%,80%)` },
         { id: "id-9", title: "Item J", color: `hsl(324,90%,80%)` },
       ],
-    }
-  },
-  methods: {
-    onDnDCancel() {
-      console.log('dnd:cancel')
     }
   }
 }
