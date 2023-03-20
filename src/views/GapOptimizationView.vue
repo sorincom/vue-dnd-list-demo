@@ -4,7 +4,7 @@
       <article v-dragsource="customItem" class="custom-drag-source">
         Drag Me!
       </article>
-      <DnDList :items="items" class="list" :useGapOptimization="useGapOptimization">
+      <DnDList :items="items" class="list" :animation="customAnimation" :useGapOptimization="useGapOptimization">
         <template v-slot:item="{ item }">
           <div class="list-item" :style="`background: ${item.color}`">
             {{ item.title }}
@@ -33,6 +33,7 @@
 
 <script>
 
+import gsap from 'gsap'
 import { DnDList, dragsource } from 'vue-dnd-list'
 import DemoLayout from '@/components/DemoLayout.vue'
 
@@ -58,6 +59,40 @@ export default {
       useGapOptimization: true
     }
   },
+  computed: {
+    customAnimation() {
+      // Uses greensock animation library
+      // https://greensock.com/docs/v3/GSAP/gsap.fromTo()
+      return {
+        onEnter(el, { onComplete }) {
+          gsap.fromTo(el, 
+          {
+            opacity: 0,
+            y: '+=40px'
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.25,
+            ease: 'back(1.1)',
+            onComplete,
+          })
+        },
+        onLeave(el, { onComplete }) {
+          gsap.to(el, {
+            height: 0,
+            opacity: 0,
+            // compensate for the list gap of 10px, as the item is not
+            // removed yet from list's items at the end of the animation
+            marginTop: -100,
+            duration: 0.25,
+            ease: 'back(1.1)',
+            onComplete,
+          })
+        },
+      }
+    },
+  }
 }
 
 </script>
