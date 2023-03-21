@@ -47,11 +47,7 @@ export default {
       ],
       customItem: {
         source: 'blue-circle',
-        data: {
-          id: 'x',
-          title: 'Dragged Item',
-          color: 'dodgerblue'
-        }
+        data: { id: 'x', title: 'Dragged Item', color: 'dodgerblue' }
       }
     }
   },

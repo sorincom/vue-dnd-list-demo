@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "use-local": "npm uninstall vue-dnd-list && yes | cp ../dnd-list/vue-dnd-list-0.0.11.tgz ./ && npm install vue-dnd-list-0.0.11.tgz && npm run dev",
-    "use-repo": "npm uninstall vue-dnd-list && npm install vue-dnd-list && npm run dev"
+    "use-repo": "npm uninstall vue-dnd-list && npm install vue-dnd-list && npm run dev",
+    "publish-gh": "npm run build && git add . && git commit -m \"deploy\" && git push && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "gsap": "^3.11.4",

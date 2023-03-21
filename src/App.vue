@@ -84,7 +84,7 @@ nav {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   width: 600px;
   min-height: 60px;
