@@ -14,7 +14,8 @@
       List items can be dragged only by their right handle.
     </template>
     <template #source>
-      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/DragHandleView.vue">Source</a>
+      <span><a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/DragHandleView.vue">Source</a></span>
+      <span>Global CSS is defined in <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/App.vue">App.vue</a></span>
     </template>
   </DemoLayout>
 </template>

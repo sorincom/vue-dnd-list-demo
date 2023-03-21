@@ -19,9 +19,11 @@
       <p>
         To see how it works, uncheck `Use Gap Optimization` and drag the blue circle inside the list through a gap between items.
       </p>
+      <p>This feature is quite useless if the list has no gaps/margins/padding so, in that case, it's probably best to disable it.</p>
     </template>
     <template #source>
-      <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/GapOptimizationView.vue">Source</a>
+      <span><a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/views/GapOptimizationView.vue">Source</a></span>
+      <span>Global CSS is defined in <a target="_blank" href="https://github.com/sorincom/vue-dnd-list-demo/blob/main/src/App.vue">App.vue</a></span>
     </template>
     <template #setup>
       <section>
@@ -101,7 +103,6 @@ export default {
 
 .list {
   gap: 100px;
-  max-height: unset;
 }
 
 </style>

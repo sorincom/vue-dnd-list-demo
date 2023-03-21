@@ -63,6 +63,12 @@ export default {
       border-bottom: 1px solid rgba(#000, 0.075);
       padding-bottom: 10px;
     }
+    .source {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(#000, 0.075);
+      padding-bottom: 10px;
+    }
     &:deep(article) {
       display: flex;
       gap: 10px;

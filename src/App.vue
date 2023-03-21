@@ -58,10 +58,10 @@ nav {
   flex-direction: column;
   gap: 10px;
   width: 400px;
-  min-height: 44px;
-  max-height: 600px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  min-height: 60px;
+  // max-height: 600px;
+  // overflow-y: auto;
+  // overflow-x: hidden;
 
   outline: 3px solid #f0f0f0;
   outline-offset: 10px;
