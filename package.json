@@ -12,7 +12,7 @@
   "dependencies": {
     "gsap": "^3.11.4",
     "vue": "^3.2.47",
-    "vue-dnd-list": "file:vue-dnd-list-0.0.11.tgz",
+    "vue-dnd-list": "^0.0.12",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
